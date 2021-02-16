@@ -1,87 +1,42 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+const HomeIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title
+  const menuLinks = data.site.siteMetadata?.menuLinks
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+    <Layout location={location} title={siteTitle} menu={menuLinks}>
+      <SEO title="Home" />
       <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+      <h3>About Me</h3>
 
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <p>My name is <strong>Bernardo</strong>. I'm from Rio de Janeiro, Brazil but have been living in Canada since 2016.</p>
+      <p>I'm an engineering manager @Shopify, currently working on <a href="https://shop.app/what-shop-does">Shop Pay</a>.</p>
+      <p>
+       I value my free time and dedicate a lot of it to sports like Bouldering, Jiu Jitsu, and Parkour.
+      </p>
+      <p>These days I've been playing with Rust programming and security challenges (CTFs).</p>
+      <p>I'm always open to talk about gaming, good books and TV series, especially ones that involve Fantasy, Sci-fi or technology in general. </p>
+      <p>You can reach out to me on Twitter as <a href="https://twitter.com/bernardo_amc">@bernardo_amc</a>.</p>
     </Layout>
   )
 }
 
-export default BlogIndex
+export default HomeIndex
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+        menuLinks {
+          name
+          link
         }
       }
     }

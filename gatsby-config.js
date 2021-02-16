@@ -1,15 +1,29 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Bernardo de Araujo`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Bernardo de Araujo`,
+      summary: `Engineering manager @shopify, working @shop.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Bernardo's rambling space!`,
+    siteUrl: `https://bernardoamc.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: "bernardo_amc",
     },
+    menuLinks:[
+      {
+          name:'Home',
+          link:'/'
+      },
+      {
+          name:'Posts',
+          link:'/posts'
+      },
+      {
+        name:'Projects',
+        link:'/projects'
+    }
+    ]
   },
   plugins: [
     {
