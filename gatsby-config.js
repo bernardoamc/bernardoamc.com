@@ -5,7 +5,7 @@ module.exports = {
       name: `Bernardo de Araujo`,
       summary: `Engineering manager @shopify, working @shop.`,
     },
-    description: `Bernardo's rambling space!`,
+    description: `Bernardo's brain dump.`,
     siteUrl: `https://bernardoamc.com`,
     social: {
       twitter: "bernardo_amc",
