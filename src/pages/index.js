@@ -13,7 +13,7 @@ const HomeIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle} menu={menuLinks}>
       <SEO title="Home" />
       <Bio />
-      <h3>About Me</h3>
+      <h1 className="main-header">About Me</h1>
 
       <p>My name is <strong>Bernardo</strong>. I'm from Rio de Janeiro, Brazil but have been living in Canada since 2016.</p>
       <p>I'm an engineering manager @Shopify, currently working on <a href="https://shop.app/what-shop-does">Shop Pay</a>.</p>
