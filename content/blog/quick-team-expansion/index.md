@@ -1,6 +1,6 @@
 ---
 title: Management during an ambitious team expansion
-date: "2021-05-21T8:00:00.284Z"
+date: "2021-05-21T08:00:00.284Z"
 description: "As a manager, what should we pay attention to when we have a successful team that is expanding rapidly?"
 ---
 
