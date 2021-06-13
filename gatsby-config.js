@@ -10,20 +10,20 @@ module.exports = {
     social: {
       twitter: "bernardo_amc",
     },
-    menuLinks:[
+    menuLinks: [
       {
-          name:'Home',
-          link:'/'
+        name: "Home",
+        link: "/",
       },
       {
-          name:'Posts',
-          link:'/posts'
+        name: "Posts",
+        link: "/posts",
       },
       {
-        name:'Projects',
-        link:'/projects'
-    }
-    ]
+        name: "Projects",
+        link: "/projects",
+      },
+    ],
   },
   plugins: [
     {
@@ -55,6 +55,9 @@ module.exports = {
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
