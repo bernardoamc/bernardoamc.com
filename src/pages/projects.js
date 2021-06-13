@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const HomeIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title
@@ -11,16 +11,14 @@ const HomeIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle} menu={menuLinks}>
-      <SEO title="Projects" />
+      <Seo title="Projects" />
       <Bio />
       <h3>Personal Projects</h3>
-
       <p>
         On my spare time I like to build small tools that solve a specific
         problem that I'm currently facing.
       </p>
       <p>My recent ones are:</p>
-
       <h4>
         <a
           className="project-title"
@@ -37,7 +35,6 @@ const HomeIndex = ({ data, location }) => {
         Safari's ITP Debug Mode lacks information, this tool is an attempt to
         make your life as a developer a bit easier.
       </p>
-
       <h4>
         <a
           className="project-title"
@@ -50,7 +47,6 @@ const HomeIndex = ({ data, location }) => {
         A modern port scanner written in Rust with an integrated scripting
         engine.
       </p>
-
       <h4>
         <a
           className="project-title"
@@ -64,7 +60,6 @@ const HomeIndex = ({ data, location }) => {
         tools and idioms from Ruby. At the end of it I hope you will have a
         better understanding of Ruby itself.
       </p>
-
       <h4>
         <a
           className="project-title"
@@ -85,7 +80,6 @@ const HomeIndex = ({ data, location }) => {
         </a>
         .
       </p>
-
       <h4>
         <a
           className="project-title"
@@ -98,7 +92,6 @@ const HomeIndex = ({ data, location }) => {
         Allows you to create a grid of emojis from a single image and
         automatically uploads them to Slack.
       </p>
-
       <h4>
         <a
           className="project-title"

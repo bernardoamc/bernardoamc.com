@@ -3,18 +3,18 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title
   const menuLinks = data.site.siteMetadata?.menuLinks
-  
+
   const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle} menu={menuLinks}>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />

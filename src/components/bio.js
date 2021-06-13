@@ -26,7 +26,7 @@ const Bio = () => {
     }
   `)
 
-  const author = data.site.siteMetadata?.author
+  const author = data.site.siteMetadata.author
 
   const avatar = data?.avatar?.childImageSharp?.fixed
 
@@ -35,21 +35,19 @@ const Bio = () => {
       {avatar && (
         <Image
           fixed={avatar}
-          alt={author?.name || ``}
+          alt={author.name}
           className="bio-avatar"
           imgStyle={{
             borderRadius: `50%`,
           }}
         />
       )}
-      {author?.name && (
-        <p>
+      {author.name && (
+        <div>
           <strong>{author.name}</strong>
           {` `}
-          <p>
-            {author?.summary || null}
-          </p>
-        </p>
+          <p>{author?.summary || null}</p>
+        </div>
       )}
     </div>
   )
