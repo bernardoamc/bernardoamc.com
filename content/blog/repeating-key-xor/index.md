@@ -6,7 +6,7 @@ description: "Implementing and breaking the repeating-key XOR algorithm"
 
 In this post we will learn what repeating-key XOR is, followed by learning how to implement it and by the end of it we will have the knowledge we need to reverse engineer the algorithm.
 
-## How does repeating-key XOR works?
+## How does repeating-key XOR work?
 
 As the name implies, the idea behind this algorithm is _repetition_, but let's start from the beginning.
 
@@ -206,6 +206,11 @@ def frequency_table(string)
   frequency
 end
 
+# The chi-squared test is used to determine whether there
+# is a statistically significant difference between the
+# expected frequencies and the computed frequencies in our
+# English category. A high score means that the text
+# is unlikely to be in English.
 def chi_squared(expected_frequency, computed_frequency)
   expected_frequency.map do |letter, expected_value|
     computed_value = computed_frequency[letter] || 0
