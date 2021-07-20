@@ -3,7 +3,7 @@ module.exports = {
     title: `Bernardo de Araujo`,
     author: {
       name: `Bernardo de Araujo`,
-      summary: `Engineering manager @shopify, working @shop.`,
+      summary: `Application Security Engineer @Shopify.`,
     },
     description: `Bernardo's brain dump.`,
     siteUrl: `https://bernardoamc.com`,
