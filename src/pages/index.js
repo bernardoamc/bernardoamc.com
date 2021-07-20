@@ -16,23 +16,21 @@ const HomeIndex = ({ data, location }) => {
       <h1 className="main-header">About Me</h1>
       <p>
         My name is <strong>Bernardo</strong>. I'm from Rio de Janeiro, Brazil
-        but have been living in Canada since 2016.
+        but have been living in Montreal, Canada since 2016.
       </p>
       <p>
-        I'm an engineering manager @Shopify, currently working on{" "}
-        <a href="https://shop.app/what-shop-does">Shop Pay</a>.
+        I'm an Application Security Engineer @Shopify, previously an Engineering
+        Manager at <a href="https://shop.app/what-shop-does">Shop Pay</a>.
       </p>
       <p>
-        I value my free time and dedicate a lot of it to sports like Bouldering,
-        Jiu Jitsu, and Parkour.
+        I value my free time and dedicate a lot of it to sports like Bouldering
+        and Jiu Jitsu. I've also been programming in Rust and tackling security
+        challenges (CTFs) lately.
       </p>
       <p>
-        These days I've been playing with Rust programming and security
-        challenges (CTFs).
-      </p>
-      <p>
-        I'm always open to talk about gaming, good books and TV series,
-        especially ones that involve Fantasy, Sci-fi or technology in general.{" "}
+        I'm always open to talk about management, gaming or good books and TV
+        series, especially ones that involve Fantasy, Sci-fi or technology in
+        general.{" "}
       </p>
       <p>
         You can reach out to me on Twitter as{" "}
