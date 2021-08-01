@@ -123,6 +123,45 @@ Note the use of the ellipses (`...`) in this case, it means that we don't care a
 
 And with this succint rule we were able to match our entire criteria without having to worry about method call conventions, line breaks or spaces or even Hash formats. How cool is that?
 
+## Going one step further
+
+Let's pretend that our method call occurs in two different contexts, but that we are interested in only matching one of them.
+
+```rb
+# We want to match in this context
+middleware.use(OmniAuth::Builder) do
+  # Our pattern
+end
+
+
+# We don't care about this context
+middleware.use(Dummy::Builder) do
+  # Our pattern
+end
+```
+
+In order to solve this we can rely on a new operator called `pattern-inside` that will act as a filter for our patterns. By using it we are saying asking Semgrep to only consider patterns that reside within our `pattern-inside` expression.
+
+Let's see how we would encode this in our rule:
+
+```yaml
+- id: alert_per_user
+  patterns:
+    - pattern-inside: |
+        middleware.use(OmniAuth::Builder) do
+            ...
+        end
+    - pattern-either:
+        - pattern: 'provider(:acme, ..., per_user: false, ...)'
+        - patterns:
+          - pattern: 'provider(:acme, ...)'
+          - pattern-not: 'provider(:acme, ..., per_user: $X, ...)'
+```
+
+We are again making use of our ellipses within `pattern-inside` to say that Semgrep should match anything inside the middleware block. The pipe (`|`) symbol at the end of our `pattern-inside` line signifies that any indented text that follows should be interpreted as a multi-line value according to the `YAML` spec.
+
+And with this new addition our rule is now context aware which is great in scenarios where code is environment dependent. We can now consider our exercise complete!
+
 ## Conclusion
 
 Semgrep is powerful and simple enough to make it a good choice when automating CI rules, that being said I still fallback to `Brakeman` when custom code is required since I can rely on the full power of `Ruby`. For example, writing a check that detects `typos` in a method call is currently much easier using `Brakeman`.
