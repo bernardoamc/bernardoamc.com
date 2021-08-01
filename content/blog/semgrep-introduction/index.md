@@ -104,7 +104,7 @@ The way we express the `OR` operator is by using what Semgrep calls `pattern-eit
     - pattern: 'provider(:acme, ..., per_user: false, ...)'
     - patterns:
       - pattern: 'provider(:acme, ...)'
-      - pattern-not-regex: 'per_user'
+      - pattern-not: 'provider(:acme, ..., per_user: $X, ...)'
   languages: [ruby]
   severity: WARNING
 ```
@@ -117,7 +117,7 @@ has a key `per_user` with value `false` <br />
 **OR** <br />
 a `provider` method call that includes `:acme` <br />
 **AND** <br />
-doesn't have the `per_user` text inside it using a regular expression.
+doesn't have the `per_user` key inside it.
 
 Note the use of the ellipses (`...`) in this case, it means that we don't care about what's inside the `provider` method call after the `:acme` symbol is found, so Semgrep will match anything till the end of the method.
 
