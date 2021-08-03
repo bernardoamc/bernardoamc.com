@@ -164,7 +164,7 @@ And with this new addition our rule is now context aware which is great in scena
 
 ## Conclusion
 
-Semgrep is powerful and simple enough to make it a good choice when automating CI rules, that being said I still fallback to `Brakeman` when custom code is required since I can rely on the full power of `Ruby`. For example, writing a check that detects `typos` in a method call is currently much easier using `Brakeman`.
+Semgrep is powerful and simple enough to make it a good choice when automating CI rules. There are situations where I still fallback to Brakeman though and that usually happens when I'm required to write custom code to enforce a check since I can rely on the full power of `Ruby`. For example, writing a custom check that detects spelling mistakes in arguments within a method call like `Rails.cache.fetch`, such as detecting an incorrect use of `expire_in` or `expirs_in` instead of the expected `expires_in` is currently much easier using Brakeman.
 
 In this post we have just scratched the surface of Semgrep, refer to the [rule syntax guide](https://semgrep.dev/docs/writing-rules/rule-syntax/) for the full schema. Operators like `pattern-inside` and `metavariables` make the schema extremely flexible.
 
