@@ -169,3 +169,16 @@ Semgrep is powerful and simple enough to make it a good choice when automating C
 In this post we have just scratched the surface of Semgrep, refer to the [rule syntax guide](https://semgrep.dev/docs/writing-rules/rule-syntax/) for the full schema. Operators like `pattern-inside` and `metavariables` make the schema extremely flexible.
 
 Let me know if you have any tips or questions by reaching out to me on Twitter or by email and I will be happy to chat about it!
+
+## Update 2021-08-05
+
+[@clintgibler](https://twitter.com/clintgibler) was kind enough to provide an example on how they would approach the problem mentioned in the conclusion of this post using Semgrep. I will share the example here, but there are more details in the [thread](https://twitter.com/clintgibler/status/1423046781600813057) that you can follow.
+
+**When we know each argument the method expects:**
+
+<iframe title="Rails Cache Invalid Args" src="https://semgrep.dev/embed/editor?snippet=clintgibler:rails-cache-invalid-args" width="100%" height="430px" frameborder="0"></iframe>
+<br/><br/>
+
+**When we do not know every method argument:**
+
+We could approach this problem doing a string edit distance comparison or something similar with Python using the [#patern-where-python](https://semgrep.dev/docs/writing-rules/rule-syntax/#pattern-where-python) operator.
