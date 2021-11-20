@@ -9,7 +9,7 @@ After our long journey learning about and attacking common block ciphers it's ti
 This series will be divided into the following posts:
 
 1. **Message Authentication Code (MAC)**
-2. CBC-MAC (ECBC) and CMAC
+2. Encrypted CBC-MAC (ECBC)
 3. NMAC
 4. PMAC
 5. HMAC
