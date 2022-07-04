@@ -19,7 +19,7 @@ const HomeIndex = ({ data, location }) => {
         but have been living in Montreal, Canada since 2016.
       </p>
       <p>
-        I'm an Application Security Engineer @Shopify, previously an Engineering
+        I'm an Application Security Manager @Shopify, previously an Engineering
         Manager at <a href="https://shop.app/what-shop-does">Shop Pay</a>.
       </p>
       <p>
