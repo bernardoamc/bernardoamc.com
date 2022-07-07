@@ -23,14 +23,14 @@ const HomeIndex = ({ data, location }) => {
         Manager at <a href="https://shop.app/what-shop-does">Shop Pay</a>.
       </p>
       <p>
-        I value my free time and dedicate a lot of it to sports like Bouldering
-        and Jiu Jitsu. I've also been programming in Rust and tackling security
-        challenges (CTFs) lately.
+        Outside of work you can likely find me in a Bouldering or Jiu Jitsu gym.
+        I've also been programming in Rust and tackling security challenges (CTFs)
+        lately.
       </p>
       <p>
-        I'm always open to talk about management, gaming or good books and TV
-        series, especially ones that involve Fantasy, Sci-fi or technology in
-        general.{" "}
+        I'm always open to have a good conversation, irrespective of topic.
+        If you have a favourite subject and want to brainstorm or just share
+        please hit me up.{" "}
       </p>
       <p>
         You can reach out to me on Twitter as{" "}
