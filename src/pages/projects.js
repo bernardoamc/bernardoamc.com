@@ -13,7 +13,26 @@ const HomeIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle} menu={menuLinks}>
       <Seo title="Projects" />
       <Bio />
-      <h3>Personal Projects</h3>
+      <h3>What have I been doing lately?</h3>
+      <p>
+        In this section I will detail where I have been spending most of my time outside of work hours.
+      </p>
+      <h4>Bouldering</h4>
+      <p>
+        I have been spending quite some time getting back into bouldering. I'm back to V8s, but
+        I would like to get more comfortable at this level and break through V9s in the next few
+        months.
+      </p>
+
+      <h4>Advanced Web Attacks and Exploitation</h4>
+      <p>
+        This is a&nbsp;
+        <a className="project-title" href="https://www.offensive-security.com/awae-oswe/">certification from Offensive Security</a>
+        &nbsp;that I've just completed. You can read more about my experience in&nbsp;
+        <a className="project-title" href="https://bernardoamc.com/offensive-security-oswe/">one of my posts</a>
+      </p>
+
+      <h3>Open Source Projects</h3>
       <p>
         On my spare time I like to build small tools that solve a specific
         problem that I'm currently facing.
@@ -28,8 +47,8 @@ const HomeIndex = ({ data, location }) => {
         </a>
       </h4>
       <p>
-        The tool everyone needs to reason about Safari's ITP by providing
-        real-time statistics as you navigate through different domains.
+        Needs help reasoning about Safari's ITP? ITP TL;DR; provides
+        real-time domain statistics as you navigate across domains.
       </p>
       <p>
         Safari's ITP Debug Mode lacks information, this tool is an attempt to
