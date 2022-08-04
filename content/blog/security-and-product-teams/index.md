@@ -13,17 +13,49 @@ Let's dive into things that are frequently overlooked by Application Security an
 Who is the audience of your project? Answering this question early on will help the team to decide which tradeoffs to make and what they should optimize for. Are we catering to developers? A particular industry? Smaller organizations? Large organizations? It is not uncommon for security initiatives to fail because they cater to an audience that is not technical, but still require a lot of technical knowledge through fine tuning or customizations. Another big way security products fail is by _assuming_ knowledge about their target audience without prior research.
  
 The more fine grained your audience is, the more you can understand their needs and how they can be addressed. While it's completely fine to appeal to a broader audience, the initiative should still be tailored to a core audience.
+
+### Actionable Items
+
+Most product owners have a hunch about what their audience is, but in order to validate that assumption a few things can be helpful:
+ 
+1. _Reach out_ to your assumed audience. Early feedback is critical to validate your assumptions and avoid building the wrong product.
+   * Explain which problems you are trying to solve
+   * Identify which problems your intended audience is facing
+   * Explain how your are aiming to solve those problems
+2. Identify the decision makers and supporters involved in the adoption/purchase of the product. How will you communicate with each group?
+   * Decision makers are the ones that will be able to greenlight the purchase of the product
+   * Supporters are the ones that will influence the decision makers and potentially help them understand the value of the product
+3. Analyze your competitors. Who are they catering to and how are they doing it?
+ 
+These questions should be continuously revised while your product evolves.
  
 ## Value proposition
  
 Having a deep understanding of the domain and the problem being solved is not enough. Knowing how to explain the value of your product and the actual problem being solved in a way that connects to your core audience is equally if not more important. This is tightly related to the brand of the product, which is an area rarely mentioned within AppSec. As a rule of thumb if you need another AppSec engineer to explain the value of your product it's highly likely that your product will not gain traction unless your core audience is AppSec engineers themselves.
  
 **Do not assume** you know what your core audience needs, doing some customer research early on goes a long way to prevent the product from focusing on the wrong things.
+
+### Actionable Items
+
+1. Identify the core differentiators of your product
+   * What makes your product unique?
+   * What are the benefits of using your product?
+2. Tailor your message to _your audience_
+3. Create a strong and clear headline that communicates the delivered benefits to the audience
+   * Sometimes a subheadline can be used to provide more context/examples
  
 ## Minimum Viable Product (MVP)
  
 After identifying the value proposition, what is the minimum set of features you can provide your customers? The faster the product can validate that their value proposition and market segment are correct the higher the chances of that product succeeding. Product teams often prototype something quick and throw it away once their value proposition is validated. AppSec teams can employ the same technique, but they should be careful to manage stakeholder expectations in order to not lose trust. Cutting corners without a clear action plan has bigger consequences for AppSec.
  
+### Actionable Items
+
+1. Identify the feature or features necessary to solve a core problem for a set of users
+   * This can be only a part of your final intended audience
+2. Validate your assumptions after every feature release
+   * Check if the intended benefits of the MVP are aligned with your audience expectation
+   * Identify pain points in the current iteration
+
 ## User Experience
  
 I will loosely use the term user experience as the ability for customers to use the product independently of where in their journey they are. As a new customer adopting the product, how much work is expected from them to get started? Do they need to refer to documentation or reach out in another channel (Slack channels, email, phone, etc) for support? Can someone experienced with the product customize it to better fit their needs? These should all be conscious decisions before releasing the product.
@@ -31,7 +63,17 @@ I will loosely use the term user experience as the ability for customers to use 
 As a rule of thumb the easier the product is from the get-go ("no config" and good defaults) the more it will gain traction. Allowing it to be customized _after_ customers are familiar with it will create a loyal customer base and increase customer retention. In other words, try to defer complexity to the later stages of the customer journey.
  
 Before we finish this section we should mention "breaking changes". One of the main reasons for customer retention are customers feeling that they have mastered your product. Shipping breaking changes force customers to go back on their learning journey and give them the perfect opportunity to consider easier alternatives. How many times have you stuck with a product despite a modern one existing just because you know it end to end?
- 
+
+### Actionable Items
+
+1. Identify a default configuration that would work for the majority of your audience
+   * Make the common usage easy and the uncommon path possible through custom configuration
+2. Create documentation _for your audience_, do not assume prior knowledge
+   * Provide examples and make those interactive when possible
+3. Provide a dedicated place for your audience to ask and share feedback
+4. Minimize breaking changes
+   * When that is not possible provide a clear migration path from previous versions or automate it
+
 ## Data
  
 Data is a broad topic and has two sides here:
@@ -48,6 +90,15 @@ Having data is half of the battle, knowing what to measure is the other half. Id
 ### Data provided to customers through product usage
  
 Can customers introspect and verify the claims made by the product through usage? Do they have access to dashboards and reports? This is a critical step to build trust and customer loyalty. Most of the time customers will have their own stakeholders and providing _digestible data_ will help them justify paying for the product.
+
+### Actionable Items
+
+Your data should be _measurable_. Avoid vague statements like "we want to improve load times" or even statements that leave margin for interpretation like "we want to reduce load times by 20%". Instead, be specific: "we aim to reduce average load time from 3s to 1.5s".
+ 
+1. Identify the desired outcomes of your product
+   * What are the metrics that will help you measure those outcomes?
+2. Identify the desired outcomes of your audience
+   * Does your product provide the necessary data to measure those outcomes?
  
 ## Semgrep as a real life example
  
@@ -70,7 +121,7 @@ Another point worth mentioning is that despite the fact that Semgrep constantly 
 ### Data
  
 A lot of new features are still being added to the product and some of those were flagged by the community. The interesting part here is that having a good user experience allowed `r2c` to build an engaged community that provides valuable feedback and advocates for the product. An area where I feel Semgrep could still improve on is providing more data to their customers in their CLI, for example, flagging rules that don't have tests associated with it.
- 
+
 ## Recap
  
 AppSec is still in the early stages of shipping products and can benefit a lot from lessons that product teams have already internalized. My expectation is that in the next decade or so we will see a lot of exciting products in this space that have mastered these basics. If you have an opinion on this subject I would love to have a chat with you, please reach out!
