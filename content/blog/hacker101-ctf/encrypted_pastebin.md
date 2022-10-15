@@ -1,7 +1,7 @@
 ---
 title: Encrypted Pastebin walkthrough
 date: "2022-10-09T09:30:00.284Z"
-description: "Writeup for the Hacker101 CTF problem Encrypted Pastebin"
+description: "Writeup for the Hacker101 CTF challenge Encrypted Pastebin"
 ---
 
 This is the next challenge from [Hacker101 CTF](https://ctf.hacker101.com/). This challenge is a mix of web and cryptography and is likely to be one of the harder challenges of this CTF since it requires quite a bit of theory.
