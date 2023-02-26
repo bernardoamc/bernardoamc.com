@@ -15,7 +15,7 @@ const HomeIndex = ({ data, location }) => {
       <Bio />
       <h3>What have I been doing lately?</h3>
       <p>
-        In this section I will detail where I have been spending most of my time outside of work hours.
+        In this section I will detail where I have been spending some of my time outside of work hours.
       </p>
       <h4>Bouldering</h4>
       <p>
@@ -24,12 +24,15 @@ const HomeIndex = ({ data, location }) => {
         months.
       </p>
 
-      <h4>Advanced Web Attacks and Exploitation</h4>
+      <h4>Electronics</h4>
       <p>
-        This is a&nbsp;
-        <a className="project-title" href="https://www.offensive-security.com/awae-oswe/">certification from Offensive Security</a>
-        &nbsp;that I've just completed. You can read more about my experience in&nbsp;
-        <a className="project-title" href="https://bernardoamc.com/offensive-security-oswe/">one of my posts</a>
+        I've been meaning to get into electronics for a long time, but only recently found my stride.
+        I've started with the basics through the book <a href="https://www.amazon.ca/Make-Electronics-hands-electronics-enthusiast/dp/1680456873">Make: Electronics: Learning by Discovery</a> and more recently <a href="https://www.amazon.ca/Practical-Electronics-Inventors-Fourth-Scherz/dp/1259587541">Practical Electronics for Inventors</a>.
+      </p>
+
+      <h3>Certifications</h3>
+      <p>
+        <a href="https://www.offensive-security.com/courses/web-300/">OSWE Certification</a> from Offensive Security. 
       </p>
 
       <h3>Open Source Projects</h3>
