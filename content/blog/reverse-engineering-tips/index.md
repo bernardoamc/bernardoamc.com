@@ -15,15 +15,15 @@ The TL;DR; is that `__libc_start_main()` receives the address of `main` as its f
 
 That would be:
 
-```sh
+```bash
 $ readelf -h <binary> | grep Entry
 Entry point address:               0x103120
 ```
 
 Then we can `gdb` our way through it:
 
-```sh
-gdb ./<binary>
+```bash
+$ gdb ./<binary>
 
 > b *0x103120
 > run
@@ -49,7 +49,7 @@ But `prot` and `flags` are a conjunction of `or`ed values. So how do we figured 
 
 The first thing to figure out is the name of the `header` file responsible for `mmap`. Luckily `man` can give us an answer.
 
-```sh
+```bash
 $ man 2 mmap
 
 NAME
@@ -67,7 +67,7 @@ Now we can use `gcc` with the following flags:
 
 Putting all of those together we can find the values for `proto` and `flags` by checking in our `man` pages for the expected flag formats:
 
-```sh
+```bash
 echo '#include <sys/mman.h>' | gcc -E - -dM | rg "MAP_"
 #define MAP_32BIT 0x8000
 #define MAP_ANON 0x1000
@@ -77,7 +77,7 @@ echo '#include <sys/mman.h>' | gcc -E - -dM | rg "MAP_"
 
 and
 
-```sh
+```bash
 $ echo '#include <sys/mman.h>' | gcc -E - -dM | rg "PROT_"
 #define PROT_EXEC 0x04
 #define PROT_NONE 0x00
@@ -91,7 +91,7 @@ In the case of `mmap` we can also check the output of the function call with `in
 
 We can use `gcc` to give us this answer.
 
-```sh
+```bash
 $ gcc -E -Wp,-v -xc /dev/null
 
 # ...
@@ -130,13 +130,13 @@ int puts(const char *s) {
 
 Now need to compile it as a shared library: 
 
-```sh
+```bash
 $ gcc our_puts.c -o our_puts.so -fPIC -shared -ldl
 ```
 
 Finally we can execute our binary:
 
-```sh
+```bash
 $ LD_PRELOAD="./our_puts.so" ./binary
 Hijacked
 ```
@@ -172,13 +172,13 @@ obtain the definitions of RTLD_DEFAULT and RTLD_NEXT from
 <dlfcn.h>.
 ```
 
-```sh
+```bash
 $ gcc our_puts.c -o our_puts.so -fPIC -shared -ldl`
 ```
 
 Finally we can execute our binary:
 
-```sh
+```bash
 $ LD_PRELOAD="./our_puts.so" ./binary
 Still hijacked
 Original
