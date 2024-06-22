@@ -19,8 +19,8 @@ const HomeIndex = ({ data, location }) => {
         but have been living in Montreal, Canada since 2016.
       </p>
       <p>
-        I'm an Application Security Manager @Shopify, previously an Engineering
-        Manager at <a href="https://shop.app/what-shop-does">Shop Pay</a>.
+        I'm an Application Security Engineer @Stripe, previously an Application Security Manager @Shopify
+        and an Engineering Manager at <a href="https://shop.app/what-shop-does">Shop</a>.
       </p>
       <p>
         Outside of work you can likely find me in a Bouldering or Jiu Jitsu gym.
