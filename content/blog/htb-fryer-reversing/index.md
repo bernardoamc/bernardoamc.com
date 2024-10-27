@@ -20,7 +20,7 @@ Our binary expects an input, transforms it somehow and checks it against a fixed
 
 Calling `disass main` shows the overall shape of our `main` function. I've omitted parts that are not relevant to the challenge in order to focus on the important aspects of the code:
 
-```asm
+```bash
 gef> disass main
 
 call   0x1090 <fgets@plt> # Reads our input
