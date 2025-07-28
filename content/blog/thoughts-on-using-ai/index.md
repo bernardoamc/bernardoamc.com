@@ -1,0 +1,21 @@
+---
+title: Thoughts on using AI
+date: "2025-07-27T12:30:00.284Z"
+description: "My thoughts on the double-edged nature of AI and how to approach it."
+---
+
+I've been asked multiple times about what I think regarding AI and how it impacts, or might impact, my work and life in the long run. After the last such question, I noticed that my stance has shifted after being exposed to different ways that AI can and has been embedded (no pun intended) in my daily life. Hopefully, writing about it will help me solidify my thought process while having a place to point people to if they ever want to hear my opinion on this matter.
+
+Something that I firmly believe is that AI is a wonderful tool to lower the entry barrier in a topic I'm _already familiar with_. Take programming as an example: if I need to write a script in a programming language that I'm not familiar with, like Lua, AI does an amazing job reducing the friction of having to research the syntax or APIs. This is only helpful because I'm able to _judge its output_ given my prior experience with programming. I wouldn't go as far as saying it helps me directly learn Lua, since this can only happen through effort, but it indirectly helps me by reducing the friction of finding good resources or patterns.
+
+As a counterpoint, watching something is not the same as doing it. I could watch a thousand hours of climbing videos and I would still not be able to climb proficiently. I could also watch people programming for hours, but I wouldn't become a competent programmer myself. Copying the output of an AI interaction is the same as watching videos, unless I'm thinking critically and executing myself, my learning will be shallow at most. As a data point to the prior statement, I've caught myself asking the same or similar questions multiple times to AI since I've not internalized any of the concepts it explained to me.
+
+It gets worse. Blindly trusting code that AI outputs lowers my competency in the long run since I'm not putting in the effort to improve or maintain my skills. Individually, this is something I can watch out for, but collectively this scares me. I work on multiple codebases on a daily basis (like many of you), and as more AI-generated code gets shipped, the lower our collective competency becomes in terms of overall context (this is already happening) and skill level. As a consequence, maintaining systems will become orders of magnitude harder. We might be shooting ourselves in the foot, or maybe AI will become so good that none of it will matter, but who knows?
+
+What about things I don't need (or want) to be competent at? This is where my opinion shifts again and AI becomes an amazing technology. I love being able to ask dumb questions and receive answers without any judgment. I also love how I can ask for the answers to be framed based on topics I'm already familiar with. It makes me more creative by exposing me to concepts that I would have a hard time searching for. It helps me get things done faster.
+
+This brings me to AI agents, an amazing technology to reduce or eliminate toil. I don't want to spend hours a week assessing something that doesn't bring me value. Could I become more efficient at my assessments? Sure! But I don't want to. I would rather spend my time solving interesting problems. Agents done right are like automations on steroids, and which developer doesn't like to automate things?
+
+So will I keep using AI? Absolutely! I've seen a lot of folks complaining that AI takes away the joy of learning or doing something, but this is entirely dependent on how the individual uses AI. Chess or Go remain incredibly fun to learn and master despite computers being able to play on better terms than us humans. Programming, writing and whatnot should be treated the same way.
+
+No one can predict where this (or any) technology will end up. We might be fully automating ourselves or hitting an inflection point where the technology's progress tapers off. Airplanes and cars saw incredible progress in the early stages, but have remained mostly the same for commercial use for decades now. Despite the outcome, don't let AI replace your critical thinking and effort, it still deeply matters and will bring you joy.
