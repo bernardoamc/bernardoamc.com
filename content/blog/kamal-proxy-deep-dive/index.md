@@ -47,7 +47,7 @@ $ docker inspect kamal-proxy | jq '.[0].HostConfig.PortBindings'
 }
 ```
 
-We can also see that both our `web application` and `kamal-proxy` share the same network ID as well:
+Notice how the `kamal-proxy` container is running a binary called `kamal-proxy`. This will help us in the future. Another interesting thing to confirm is that both our `web application` and `kamal-proxy` share the same network ID:
 
 ```bash
 $ docker inspect kamal-proxy | jq '.[0].NetworkSettings.Networks.kamal.NetworkID'
@@ -108,9 +108,9 @@ $ docker network inspect ee31959bc2474fff68ea97e6ec162052982bd61d5ae24731fbcb8b3
         }
 ```
 
-We can see that both containers are on the same private Docker bridge network called `kamal`. This means that `kamal-proxy` doesn't reach our web application through our host's public IP or localhost, instead it uses the internal network using Docker's built-in DNS. This is the reason our web application doesn't need to publish port `8080` on the host.
+Both containers are on the same private Docker bridge network called `kamal`. This means that `kamal-proxy` doesn't reach our web application through our host's public IP or localhost, instead it uses the internal network using Docker's built-in DNS. This is the reason our web application doesn't need to publish port `8080` on the host.
 
-By running `ip link show` we can see that the bridge network exists at the kernel level:
+Through `ip link show` we can see that the bridge network exists at the kernel level:
 
 ```bash
 $ ip link show
@@ -143,7 +143,7 @@ $ ip link show | grep -A1 veth
     link/ether be:96:a0:9d:e9:a5 brd ff:ff:ff:ff:ff:ff link-netnsid 1
 ```
 
-Two things of notice. First, both `veth` pairs are `@if2`, which means they are connected to the second interface in the [namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html) container network stack. Second, see that `master` is `br-ee31959bc247`? That's our bridge! Let's check the other side of one of our veth pairs inside our container namespaces by using [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html):
+Two things of notice. First, both `veth` pairs are `@if2`, which means they are connected to the second interface in the [namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html) container network stack. Second, see that `master` is `br-ee31959bc247`? That's our bridge! Let's check the other side of one of our veth pairs inside `kamal-proxy` container namespace by using [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html):
 
 ```bash
 $ nsenter --net --target $(docker inspect -f '{{.State.Pid}}' kamal-proxy) ip addr show
@@ -267,7 +267,7 @@ Any process inside this namespace that tries to query DNS on port 53 gets silent
 - Responses from 127.0.0.11:39291 → source rewritten to port 53
 - Responses from 127.0.0.11:57361 → source rewritten to port 53
 
-This still doesn't explain how `kamal-proxy` knows about the new container! Let's inspect the binary itself:
+But this still doesn't explain how `kamal-proxy` knows about the new container! Let's inspect the binary itself:
 
 ```bash
 $ docker exec kamal-proxy kamal-proxy deploy --help
@@ -285,7 +285,7 @@ Service  Host           Path  Target             State    TLS
 xps-web  tasks.xps.one  /     dfdee429978c:8080  running  yes
 ```
 
-See how our target is the existing container? Pretty cool! So who tells `kamal-proxy` the container and how? A common pattern in these systems is to use a unix [socket](https://man7.org/linux/man-pages/man2/socket.2.html) to communicate with a process, do we have one of those?
+See how our target is the existing container? Pretty cool! So who tells `kamal-proxy` about the container and how? A common pattern in these systems is to use a unix [socket](https://man7.org/linux/man-pages/man2/socket.2.html) to communicate with a process, do we have one of those?
 
 ```bash
 $ cat /proc/$(docker inspect -f '{{.State.Pid}}' kamal-proxy)/net/unix
