@@ -384,27 +384,27 @@ Date: Thu, 26 Feb 2026 04:18:53 GMT\r
 And this clears any doubt of what is happening:
 
 1. Pull the new image
-```
+```bash
 DELETE /v1.53/images/kaeros/xps:98043a3   ← remove stale local copy
 POST   /v1.53/images/create?fromImage=kaeros/xps&tag=98043a3  ← pull fresh from Docker Hub
 GET    /v1.53/images/kaeros/xps:98043a3/json  ← inspect the image
 ```
 
 2. Ensure infrastructure exists
-```
+```bash
 POST /v1.53/networks/create {"Name":"kamal"...}
 GET  /v1.53/containers/kamal-proxy/json
 POST /v1.53/containers/kamal-proxy/start
 ```
 
 3. Find and rename the old container
-```
+```bash
 GET  /v1.53/containers/json?filters={"label":{"service=xps","role=web"...}}
 POST /v1.53/containers/xps-web-98043a3/rename?name=xps-web-98043a3_replaced_4c73fa88
 ```
 
 4. Create and start the new container
-```
+```bash
 POST /v1.53/containers/create?name=xps-web-98043a3
 {
   "Image": "kaeros/xps:98043a3",
@@ -418,7 +418,7 @@ POST /v1.53/containers/7c001501e3ca/start
 ```
 
 5. Tell kamal-proxy about the new container
-```
+```bash
 POST /v1.53/containers/kamal-proxy/exec
 {
   "Cmd": [
@@ -435,12 +435,12 @@ POST /v1.53/containers/kamal-proxy/exec
 ```
 
 6. Stop the old container
-```
+```bash
 POST /v1.53/containers/13e21e3cada6/stop
 ```
 
 7. Cleanup
-```
+```bash
 POST /v1.53/images/kaeros/xps:98043a3/tag?repo=kaeros/xps&tag=latest
 POST /v1.53/images/prune?filters={"dangling":true,"label":{"service=xps"}}
 GET  /v1.53/containers/json?filters={"label":{"service=xps"},"status":{"exited"}}
